@@ -1,0 +1,2 @@
+export const BOX_FETCHED = "BOX_FETCHED";
+export const THREAD_FETCHED = "THREAD_FETCHED";
