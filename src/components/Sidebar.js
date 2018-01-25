@@ -25,7 +25,7 @@ const Sidebar = ({ onClick, path }) => (
 
     <span
       className={active(path, "/box/:id")}
-      onClick={() => onClick("BOX", { id: 33 })}
+      onClick={() => onClick("BOX", 33)}
     >
       F33
     </span>

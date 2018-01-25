@@ -2,6 +2,11 @@ import { NOT_FOUND } from "redux-first-router";
 
 // try dispatching these from the redux devTools
 
+export const goToPage = (type, id) => ({
+  type,
+  payload: id && { id }
+});
+
 export const goHome = () => ({
   type: "HOME"
 });
@@ -11,11 +16,11 @@ export const notFound = () => ({
 });
 
 export const visitBox = boxID => ({
-  type: "LIST",
+  type: "BOX",
   payload: { boxID }
 });
 
-export const visitVideo = slug => ({
-  type: "VIDEO",
-  payload: { slug }
+export const visitThread = threadID => ({
+  type: "THREAD",
+  payload: { threadID }
 });
