@@ -17,5 +17,19 @@ export default {
 
       dispatch({ type: type.BOX_FETCHED, payload: box });
     }
+  },
+  THREAD: {
+    path: "/thread/:id",
+    thunk: async (dispatch, getState) => {
+      const { location: { payload: { id } } } = getState();
+
+      const thread = await fetchData(`/api/thread/${id}/posts`);
+
+      if (!thread) {
+        return dispatch({ type: NOT_FOUND });
+      }
+
+      dispatch({ type: type.THREAD_FETCHED, payload: thread });
+    }
   }
 };
