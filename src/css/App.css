@@ -1,6 +1,10 @@
 body {
   margin: 0;
   background: rgb(27, 32, 34);
+  font-family: Source Sans Pro, Segoe UI, -apple-system, BlinkMacSystemFont,
+    Roboto, Oxygen, Ubuntu, Cantarell, Helvetica Neue, trebuchet MS, Arial,
+    sans-serif;
+  font-size: 15px;
 }
 
 .app {
@@ -9,8 +13,15 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   margin-top: 10px;
 }
 
+a {
+  color: #5ac8fa;
+}
+
+font {
+  color: #5ac8fa;
+}
