@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import styles from "../css/Thread.css";
 
 const Thread = ({ data }) => (
   <div>
     {data.length !== 0
       ? data.map(item => (
-          <div>
+          <div className={styles.post}>
             <div>{item.ID}</div>
             <div>{item.Number}</div>
             <div>{item.UserName}</div>

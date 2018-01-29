@@ -25,3 +25,8 @@ a {
 font {
   color: #5ac8fa;
 }
+
+img {
+  max-width: 100%;
+  width: auto;
+}
