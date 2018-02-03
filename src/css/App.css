@@ -23,10 +23,6 @@ a {
   cursor: pointer;
 }
 
-a.highlight {
-  font-weight: bold;
-}
-
 font {
   color: #5ac8fa;
 }
