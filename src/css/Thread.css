@@ -3,3 +3,7 @@
   margin-bottom: 24px;
   background-color: #23282a;
 }
+
+.post .content {
+  padding-top: 12px;
+}
