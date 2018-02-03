@@ -20,6 +20,11 @@ body {
 
 a {
   color: #5ac8fa;
+  cursor: pointer;
+}
+
+a.highlight {
+  font-weight: bold;
 }
 
 font {
