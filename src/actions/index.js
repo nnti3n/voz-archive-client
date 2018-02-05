@@ -20,7 +20,7 @@ export const visitBox = boxID => ({
   payload: { boxID }
 });
 
-export const visitThreadPage = (id, page = 1) => ({
+export const visitThreadPage = (id, currentPage = 1) => ({
   type: "THREAD_WITH_PAGE",
-  payload: { id, page }
+  payload: { id, currentPage }
 });

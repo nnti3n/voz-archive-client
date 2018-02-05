@@ -3,11 +3,10 @@ import { fetchData } from "./utils";
 import * as type from "./actions/actionType";
 
 async function fetchThread(dispatch, getState) {
-  const { location: { payload: { id, page } } } = getState();
-  console.log(page);
+  const { location: { payload: { id, currentPage } } } = getState();
 
   const thread = await fetchData(
-    `/api/thread/${id}/posts?page=${page ? page : 1}&limit=10`
+    `/api/thread/${id}/posts?page=${currentPage ? currentPage : 1}&limit=10`
   );
 
   if (!thread) {
@@ -38,7 +37,7 @@ export default {
     thunk: fetchThread
   },
   THREAD_WITH_PAGE: {
-    path: "/thread/:id/:page",
+    path: "/thread/:id/:currentPage",
     thunk: fetchThread
   }
 };

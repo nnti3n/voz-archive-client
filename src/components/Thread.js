@@ -28,7 +28,7 @@ const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
         ? Array.from(Array(page).keys()).map(item => (
             <a
               key={item + 1}
-              className={currentPage === item ? highlight : null}
+              className={currentPage === item + 1 ? highlight : null}
               onClick={() => visitThreadPage(id, item + 1)}
             >
               {item + 1}{" "}

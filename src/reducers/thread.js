@@ -16,6 +16,13 @@ export default (state = initState, action = {}) => {
         page
       };
     }
+    case "THREAD_WITH_PAGE": {
+      const { currentPage } = action.payload;
+      return {
+        ...state,
+        currentPage
+      };
+    }
     default: {
       return state;
     }
