@@ -2,6 +2,21 @@ import { NOT_FOUND } from "redux-first-router";
 import { fetchData } from "./utils";
 import * as type from "./actions/actionType";
 
+async function fetchThread(dispatch, getState) {
+  const { location: { payload: { id, page } } } = getState();
+  console.log(page);
+
+  const thread = await fetchData(
+    `/api/thread/${id}/posts?page=${page ? page : 1}&limit=10`
+  );
+
+  if (!thread) {
+    return dispatch({ type: NOT_FOUND });
+  }
+
+  dispatch({ type: type.THREAD_FETCHED, payload: thread });
+}
+
 export default {
   HOME: "/",
   BOX: {
@@ -20,19 +35,10 @@ export default {
   },
   THREAD: {
     path: "/thread/:id",
-    thunk: async (dispatch, getState) => {
-      const { location: { payload: { id, page } } } = getState();
-      console.log(page);
-
-      const thread = await fetchData(
-        `/api/thread/${id}/posts?page=${page ? page : 1}&limit=10`
-      );
-
-      if (!thread) {
-        return dispatch({ type: NOT_FOUND });
-      }
-
-      dispatch({ type: type.THREAD_FETCHED, payload: thread });
-    }
+    thunk: fetchThread
+  },
+  THREAD_WITH_PAGE: {
+    path: "/thread/:id/:page",
+    thunk: fetchThread
   }
 };

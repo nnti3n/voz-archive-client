@@ -7,5 +7,6 @@ const components = {
   HOME: "Home",
   BOX: "Box",
   THREAD: "Thread",
+  THREAD_WITH_PAGE: "Thread",
   [NOT_FOUND]: "NotFound"
 };
