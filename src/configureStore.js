@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/logOnlyInProduction";
 import { connectRoutes } from "redux-first-router";
+import restoreScroll from "redux-first-router-restore-scroll";
 
 import routesMap from "./routesMap";
 import * as reducers from "./reducers";
@@ -9,7 +10,8 @@ import * as actionCreators from "./actions";
 export default (history, preLoadedState) => {
   const { reducer, middleware, enhancer, thunk } = connectRoutes(
     history,
-    routesMap
+    routesMap,
+    { restoreScroll: restoreScroll() }
   );
 
   const rootReducer = combineReducers({ ...reducers, location: reducer });
