@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import styles from "../css/Thread.css";
-import { highlight, container } from "../css/Paginate.css";
 import { visitThreadPage } from "../actions";
+import Pagination from "./Pagination";
 
 const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
   <div>
@@ -23,19 +23,12 @@ const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
           ))
         : ""}
     </div>
-    <div className={container}>
-      {data.length > 0
-        ? Array.from(Array(page).keys()).map(item => (
-            <a
-              key={item + 1}
-              className={currentPage === item + 1 ? highlight : null}
-              onClick={() => visitThreadPage(id, item + 1)}
-            >
-              {item + 1}{" "}
-            </a>
-          ))
-        : ""}
-    </div>
+    <Pagination
+      page={page}
+      visitPage={visitThreadPage}
+      currentPage={currentPage}
+      id={id}
+    />
   </div>
 );
 

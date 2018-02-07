@@ -16,21 +16,29 @@ async function fetchThread(dispatch, getState) {
   dispatch({ type: type.THREAD_FETCHED, payload: thread });
 }
 
+async function fetchBox(dispatch, getState) {
+  const { location: { payload: { id, currentPage } } } = getState();
+
+  const box = await fetchData(
+    `/api/box/${id}?page=${currentPage ? currentPage : 1}&limit=10`
+  );
+
+  if (!box) {
+    return dispatch({ type: NOT_FOUND });
+  }
+
+  dispatch({ type: type.BOX_FETCHED, payload: box });
+}
+
 export default {
   HOME: "/",
   BOX: {
     path: "/box/:id",
-    thunk: async (dispatch, getState) => {
-      const { location: { payload: { id } } } = getState();
-
-      const box = await fetchData(`/api/box/${id}`);
-
-      if (!box) {
-        return dispatch({ type: NOT_FOUND });
-      }
-
-      dispatch({ type: type.BOX_FETCHED, payload: box });
-    }
+    thunk: fetchBox
+  },
+  BOX_WITH_PAGE: {
+    path: "/box/:id/:currentPage",
+    thunk: fetchBox
   },
   THREAD: {
     path: "/thread/:id",

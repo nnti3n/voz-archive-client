@@ -15,9 +15,9 @@ export const notFound = () => ({
   type: NOT_FOUND
 });
 
-export const visitBox = boxID => ({
-  type: "BOX",
-  payload: { boxID }
+export const visitBoxPage = (id, currentPage = 1) => ({
+  type: "BOX_WITH_PAGE",
+  payload: { id, currentPage }
 });
 
 export const visitThreadPage = (id, currentPage = 1) => ({

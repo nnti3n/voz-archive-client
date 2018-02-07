@@ -1,7 +1,10 @@
 .post {
   padding: 6px;
-  margin-bottom: 24px;
   background-color: #23282a;
+}
+
+.post:not(:last-child) {
+  margin-bottom: 24px;
 }
 
 .post .content {
