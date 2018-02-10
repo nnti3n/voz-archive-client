@@ -6,7 +6,7 @@ import { goToPage, visitBoxPage } from "../actions";
 import Pagination from "./Pagination";
 import styles from "../css/Box.css";
 
-const Box = ({ data, visitBoxPage, page, id, currentPage }) => (
+const Box = ({ data, visitBoxPage, goToPage, page, id, currentPage }) => (
   <div>
     {data.length
       ? data.map(item => (
@@ -38,6 +38,6 @@ const Box = ({ data, visitBoxPage, page, id, currentPage }) => (
 );
 
 const mapState = state => state.box;
-const mapDispatch = { visitBoxPage };
+const mapDispatch = { visitBoxPage, goToPage };
 
 export default connect(mapState, mapDispatch)(Box);
