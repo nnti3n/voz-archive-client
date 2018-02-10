@@ -17,14 +17,16 @@ const Pagination = ({ page, currentPage, visitPage, id }) => (
       style={{ visibility: currentPage === page ? "hidden" : "visible" }}
       onClick={() => {
         if (currentPage < page) {
-          console.log(currentPage, page);
           visitPage(id, currentPage + 1);
         }
       }}
     >
       Next{" "}
     </a>
-    page: <span>{currentPage}</span>
+    page:{" "}
+    <span>
+      {currentPage} of {page}
+    </span>
   </div>
 );
 

@@ -1,15 +1,26 @@
 const initState = {
-  data: []
+  data: [],
+  id: 0,
+  page: 1,
+  currentPage: 1
 };
 
 export default (state = initState, action = {}) => {
   switch (action.type) {
     case "BOX_FETCHED": {
-      const { data, params } = action.payload;
+      const { data, params, page } = action.payload;
       return {
         ...state,
         data,
-        id: params
+        id: params,
+        page
+      };
+    }
+    case "BOX_WITH_PAGE": {
+      const { currentPage } = action.payload;
+      return {
+        ...state,
+        currentPage
       };
     }
     default: {

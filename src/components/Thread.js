@@ -23,12 +23,14 @@ const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
           ))
         : ""}
     </div>
-    <Pagination
-      page={page}
-      visitPage={visitThreadPage}
-      currentPage={currentPage}
-      id={id}
-    />
+    {data.length ? (
+      <Pagination
+        page={page}
+        visitPage={visitThreadPage}
+        currentPage={currentPage}
+        id={id}
+      />
+    ) : null}
   </div>
 );
 

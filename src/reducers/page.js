@@ -6,6 +6,7 @@ export default (state = "HOME", action = {}) =>
 const components = {
   HOME: "Home",
   BOX: "Box",
+  BOX_WITH_PAGE: "Box",
   THREAD: "Thread",
   THREAD_WITH_PAGE: "Thread",
   [NOT_FOUND]: "NotFound"

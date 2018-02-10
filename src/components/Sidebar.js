@@ -13,19 +13,19 @@ const Sidebar = ({ onClick, path }) => (
         HOME
       </NavLink>
 
-      <NavLink activeClassName={styles.active} exact to="/box/33">
+      <NavLink activeClassName={styles.active} to="/box/33">
         F33
       </NavLink>
 
       <div style={{ height: 20 }} />
       <h2>EVENT HANDLERS</h2>
 
-      <span className={active(path, "/")} onClick={() => onClick("HOME")}>
+      <span className={active(path, /^[/]$/)} onClick={() => onClick("HOME")}>
         HOME
       </span>
 
       <span
-        className={active(path, "/box/:id")}
+        className={active(path, /\/box\/33\w*/)}
         onClick={() => onClick("BOX", 33)}
       >
         F33
@@ -34,8 +34,9 @@ const Sidebar = ({ onClick, path }) => (
   </div>
 );
 
-const active = (currentPath, path) =>
-  currentPath === path ? styles.active : "";
+const active = (currentPath, path) => {
+  return currentPath.match(path) ? styles.active : "";
+};
 
 const mapDispatch = { onClick: goToPage };
 const mapState = ({ location }) => ({ path: location.pathname });

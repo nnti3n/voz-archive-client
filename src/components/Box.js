@@ -2,10 +2,11 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import { goToPage } from "../actions";
+import { goToPage, visitBoxPage } from "../actions";
+import Pagination from "./Pagination";
 import styles from "../css/Box.css";
 
-const Box = ({ data, goToPage }) => (
+const Box = ({ data, visitBoxPage, page, id, currentPage }) => (
   <div>
     {data.length
       ? data.map(item => (
@@ -25,10 +26,18 @@ const Box = ({ data, goToPage }) => (
           </div>
         ))
       : "NotFound"}
+    {data.length ? (
+      <Pagination
+        page={page}
+        visitPage={visitBoxPage}
+        currentPage={currentPage}
+        id={id}
+      />
+    ) : null}
   </div>
 );
 
 const mapState = state => state.box;
-const mapDispatch = { goToPage };
+const mapDispatch = { visitBoxPage };
 
 export default connect(mapState, mapDispatch)(Box);
