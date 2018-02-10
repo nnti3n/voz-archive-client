@@ -16,6 +16,12 @@ export default (state = initState, action = {}) => {
         page
       };
     }
+    case "BOX": {
+      return {
+        ...state,
+        currentPage: 1
+      };
+    }
     case "BOX_WITH_PAGE": {
       const { currentPage } = action.payload;
       return {
