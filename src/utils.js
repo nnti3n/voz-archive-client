@@ -6,4 +6,4 @@ const VOZ_API =
     : "http://localhost:8080";
 
 export const fetchData = async path =>
-  fetch(`${VOZ_API}/${path}`).then(data => data.json());
+  fetch(`${VOZ_API}${path}`).then(data => data.json());
