@@ -15,7 +15,8 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  margin-top: 10px;
+  max-width: 1180px;
+  margin: 10px auto;
 }
 
 a {
