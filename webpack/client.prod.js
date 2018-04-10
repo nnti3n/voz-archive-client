@@ -54,7 +54,8 @@ module.exports = {
 
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify("production")
+        NODE_ENV: JSON.stringify("production"),
+        API: JSON.stringify("http://api.vozarchive.me")
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
@@ -93,7 +94,8 @@ module.exports = {
       plugins: [
         new webpack.DefinePlugin({
           "process.env": {
-            NODE_ENV: JSON.stringify("production")
+            NODE_ENV: JSON.stringify("production"),
+            API: JSON.stringify("http://api.vozarchive.me")
           }
         }),
 

@@ -6,7 +6,7 @@ async function fetchThread(dispatch, getState) {
   const { location: { payload: { id, currentPage } } } = getState();
 
   const thread = await fetchData(
-    `/api/thread/${id}/posts?page=${currentPage ? currentPage : 1}&limit=10`
+    `/thread/${id}/posts?page=${currentPage ? currentPage : 1}&limit=10`
   );
 
   if (!thread) {
@@ -20,7 +20,7 @@ async function fetchBox(dispatch, getState) {
   const { location: { payload: { id, currentPage } } } = getState();
 
   const box = await fetchData(
-    `/api/box/${id}?page=${currentPage ? currentPage : 1}&limit=10`
+    `/box/${id}?page=${currentPage ? currentPage : 1}&limit=10`
   );
 
   if (!box) {
