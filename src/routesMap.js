@@ -2,7 +2,7 @@ import { NOT_FOUND } from "redux-first-router";
 import { fetchData } from "./utils";
 import * as type from "./actions/actionType";
 
-async function fetchHome(dispatch, getState) {
+async function fetchHome(dispatch) {
   const box = await fetchData(`/box/33?page=1&limit=10`);
 
   if (!box) {

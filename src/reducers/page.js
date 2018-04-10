@@ -4,7 +4,7 @@ export default (state = "HOME", action = {}) =>
   components[action.type] || state;
 
 const components = {
-  HOME: "Home",
+  HOME: "Box",
   BOX: "Box",
   BOX_WITH_PAGE: "Box",
   THREAD: "Thread",

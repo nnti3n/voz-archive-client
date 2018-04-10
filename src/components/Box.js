@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { goToPage, visitBoxPage } from "../actions";
 import Pagination from "./Pagination";
 import styles from "../css/Box.css";
+// import { excludeThreads } from "../utils";
 
 const Box = ({ data, visitBoxPage, goToPage, page, id, currentPage }) => (
   <div>
