@@ -2,6 +2,16 @@ import { NOT_FOUND } from "redux-first-router";
 import { fetchData } from "./utils";
 import * as type from "./actions/actionType";
 
+async function fetchHome(dispatch, getState) {
+  const box = await fetchData(`/box/33?page=1&limit=10`);
+
+  if (!box) {
+    return dispatch({ type: NOT_FOUND });
+  }
+
+  dispatch({ type: type.BOX_FETCHED, payload: box });
+}
+
 async function fetchThread(dispatch, getState) {
   const { location: { payload: { id, currentPage } } } = getState();
 
@@ -31,7 +41,10 @@ async function fetchBox(dispatch, getState) {
 }
 
 export default {
-  HOME: "/",
+  HOME: {
+    path: "/",
+    thunk: fetchHome
+  },
   BOX: {
     path: "/box/:id",
     thunk: fetchBox
