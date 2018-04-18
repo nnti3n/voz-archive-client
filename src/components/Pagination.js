@@ -6,7 +6,7 @@ const Pagination = ({ page, currentPage, visitPage, id }) => (
     <a
       style={{ visibility: currentPage === 1 ? "hidden" : "visible" }}
       onClick={() => {
-        if (currentPage > 1 && currentPage < page) {
+        if (currentPage > 1 && currentPage <= page) {
           visitPage(id, currentPage - 1);
         }
       }}
