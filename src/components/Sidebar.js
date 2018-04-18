@@ -8,7 +8,7 @@ import styles from "../css/Sidebar.css";
 const Sidebar = () => (
   <div className={styles.sidebar}>
     <div className={styles.fixedContainer}>
-      <h2>SEO-FRIENDLY LINKS</h2>
+      <h2>Boxes</h2>
 
       <NavLink activeClassName={styles.active} to="/box/33">
         F33

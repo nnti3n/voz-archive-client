@@ -24,6 +24,7 @@ export default ({ clientStats }) => async (req, res, next) => {
       <html>
         <head>
           <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>Voz Archive</title> 
           ${styles}
           <link rel="stylesheet prefetch" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">

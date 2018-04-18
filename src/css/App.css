@@ -14,9 +14,15 @@ body {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
-  flex-direction: row;
+  flex-direction: column;
   max-width: 1180px;
   margin: 10px auto;
+}
+
+@media screen and (min-width: 768px) {
+  .app {
+    flex-direction: row;
+  }
 }
 
 a {
