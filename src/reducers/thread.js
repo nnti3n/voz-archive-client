@@ -1,5 +1,8 @@
 const initState = {
-  data: [],
+  data: {
+    thread: {},
+    posts: []
+  },
   id: 0,
   page: 1,
   currentPage: 1
@@ -19,7 +22,7 @@ export default (state = initState, action = {}) => {
     case "THREAD": {
       return {
         ...state,
-        data: [],
+        data: initState.data,
         currentPage: 1
       };
     }
@@ -27,7 +30,7 @@ export default (state = initState, action = {}) => {
       const { currentPage } = action.payload;
       return {
         ...state,
-        data: [],
+        data: initState.data,
         currentPage
       };
     }

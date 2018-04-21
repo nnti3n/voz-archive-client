@@ -7,8 +7,8 @@ import Pagination from "./Pagination";
 const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
   <div>
     <div>
-      {data.length !== 0
-        ? data.map(item => (
+      {data.posts.length !== 0
+        ? data.posts.map(item => (
             <div className={styles.post} key={item.ID}>
               <div>#{item.Number}</div>
               <div>{item.ID}</div>
@@ -23,7 +23,7 @@ const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
           ))
         : ""}
     </div>
-    {data.length ? (
+    {data.posts.length ? (
       <Pagination
         page={page}
         visitPage={visitThreadPage}
