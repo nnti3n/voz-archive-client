@@ -1,0 +1,18 @@
+.comment {
+  padding: 6px;
+  background-color: #23282a;
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+.comment__text {
+  padding: 10px 15px;
+}
+
+.comment__meta {
+  div {
+    display: inline-block;
+    padding: 7px 5px 10px;
+  }
+}

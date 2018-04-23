@@ -32,19 +32,58 @@ module.exports = {
       {
         test: /\.css$/,
         use: ExtractCssChunks.extract({
-          use: {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              localIdentName: "[name]__[local]--[hash:base64:5]"
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                localIdentName: "[name]__[local]--[hash:base64:5]"
+              }
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: () => [require("autoprefixer")],
+                sourceMap: true
+              }
             }
-          }
+          ]
+        })
+      },
+      {
+        test: /(\.scss|\.sass)$/,
+        use: ExtractCssChunks.extract({
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: true,
+                modules: true,
+                importLoaders: 1,
+                localIdentName: "[name]__[local]--[hash:base64:5]"
+              }
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: () => [require("autoprefixer")],
+                sourceMap: true
+              }
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                includePaths: [path.resolve(__dirname, "src", "scss")],
+                sourceMap: true
+              }
+            }
+          ]
         })
       }
     ]
   },
   resolve: {
-    extensions: [".js", ".css"]
+    extensions: [".js", ".css", ".scss"]
   },
   plugins: [
     new WriteFilePlugin(), // used so you can see what chunks are produced in dev
