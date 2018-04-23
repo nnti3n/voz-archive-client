@@ -5,7 +5,7 @@ export default (state = "VozArchive", action = {}) => {
     case "BOX":
       return `VozArchive: Box F${action.payload.id}`;
     case "THREAD_FETCHED":
-      return `VozArchive: Thread ${action.payload.id}`;
+      return `VozArchive: Thread ${action.payload.data.thread.Title}`;
     default:
       return state;
   }

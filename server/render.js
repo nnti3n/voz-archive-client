@@ -13,6 +13,7 @@ export default ({ clientStats }) => async (req, res, next) => {
   const app = createApp(App, store);
   const appString = ReactDOM.renderToString(app);
   const stateJson = JSON.stringify(store.getState());
+  const { title } = store.getState();
   const chunkNames = flushChunkNames();
   const { js, styles, cssHash } = flushChunks(clientStats, { chunkNames });
 
@@ -25,7 +26,7 @@ export default ({ clientStats }) => async (req, res, next) => {
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Voz Archive</title> 
+          <title>${title}</title> 
           ${styles}
           <link rel="stylesheet prefetch" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         </head>
