@@ -9,6 +9,20 @@ import configureStore from "./configureStore";
 const history = createHistory();
 const { store } = configureStore(history, window.REDUX_STATE);
 
+if (typeof document !== "undefined") {
+  setTimeout(() => {
+    let prevTitle = document.title;
+
+    store.subscribe(() => {
+      const title = store.getState().title;
+      if (prevTitle !== title) {
+        document.title = title;
+        prevTitle = title;
+      }
+    });
+  });
+}
+
 const render = App => {
   const root = document.getElementById("root");
 
