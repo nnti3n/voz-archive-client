@@ -28,7 +28,6 @@ export default ({ clientStats }) => async (req, res, next) => {
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>${title}</title> 
           ${styles}
-          <link rel="stylesheet prefetch" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         </head>
         <body>
           <script>window.REDUX_STATE = ${stateJson}</script>
