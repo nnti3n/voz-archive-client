@@ -27,15 +27,33 @@ module.exports = {
         use: "babel-loader"
       },
       {
-        test: /\.css$/,
+        test: /(\.css|\.scss|\.sass)$/,
         use: ExtractCssChunks.extract({
-          use: {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              localIdentName: "[name]__[local]--[hash:base64:5]"
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: true,
+                modules: true,
+                importLoaders: 1,
+                localIdentName: "[name]__[local]--[hash:base64:5]"
+              }
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: () => [require("autoprefixer")],
+                sourceMap: true
+              }
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                includePaths: [path.resolve(__dirname, "src", "scss")],
+                sourceMap: true
+              }
             }
-          }
+          ]
         })
       }
     ]

@@ -41,15 +41,33 @@ module.exports = {
         use: "babel-loader"
       },
       {
-        test: /\.css$/,
+        test: /(\.css|\.scss|\.sass)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "css-loader/locals",
-          options: {
-            modules: true,
-            localIdentName: "[name]__[local]--[hash:base64:5]"
+        use: [
+          {
+            loader: "css-loader/locals",
+            options: {
+              sourceMap: true,
+              modules: true,
+              importLoaders: 1,
+              localIdentName: "[name]__[local]--[hash:base64:5]"
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: () => [require("autoprefixer")],
+              sourceMap: true
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              includePaths: [path.resolve(__dirname, "src", "scss")],
+              sourceMap: true
+            }
           }
-        }
+        ]
       }
     ]
   },
