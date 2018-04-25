@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import styles from "../css/Thread.scss";
 import { visitThreadPage } from "../actions";
 import Pagination from "./Pagination";
+import { formatDate } from "../utils";
 
 const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
   <div>
@@ -11,10 +12,9 @@ const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
         ? data.posts.map(item => (
             <div className={styles.comment} key={item.ID}>
               <div className={styles.comment__meta}>
-                <div>#{item.Number}</div>
-                <div>{item.ID}</div>
+                <div className={styles.order}>#{item.Number}</div>
                 <div>{item.UserName}</div>
-                <div>{item.Time}</div>
+                <div className={styles.time}>{formatDate(item.Time)}</div>
               </div>
               <div
                 className={styles.comment__text}
