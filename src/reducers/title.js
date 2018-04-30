@@ -1,11 +1,11 @@
 export default (state = "VozArchive", action = {}) => {
   switch (action.type) {
     case "HOME":
-      return "VozArchive";
+      return "Vozforums Archive";
     case "BOX":
-      return `VozArchive: Box F${action.payload.id}`;
+      return `Box: F${action.payload.id}`;
     case "THREAD_FETCHED":
-      return `VozArchive: Thread ${action.payload.data.thread.Title}`;
+      return `Thread: ${action.payload.data.thread.Title}`;
     default:
       return state;
   }
