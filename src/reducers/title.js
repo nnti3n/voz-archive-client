@@ -1,4 +1,4 @@
-export default (state = "VozArchive", action = {}) => {
+export default (state = "Vozforums Archive", action = {}) => {
   switch (action.type) {
     case "HOME":
       return "Vozforums Archive";
