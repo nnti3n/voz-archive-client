@@ -16,6 +16,13 @@ export default ({ clientStats }) => async (req, res, next) => {
   const { title } = store.getState();
   const chunkNames = flushChunkNames();
   const { js, styles, cssHash } = flushChunks(clientStats, { chunkNames });
+  const ga = `<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116653642-2"></script>
+          <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-116653642-2');
+          </script>`;
 
   console.log("REQUESTED PATH:", req.path);
   console.log("CHUNK NAMES", chunkNames);
@@ -35,6 +42,8 @@ export default ({ clientStats }) => async (req, res, next) => {
           ${cssHash}
           <script type='text/javascript' src='/static/vendor.js'></script>
           ${js}
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+          ${process.env.NODE_ENV === "production" ? ga : null}
         </body>
       </html>`
   );
