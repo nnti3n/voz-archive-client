@@ -8,6 +8,10 @@
 
 .comment__text {
   padding: 10px 15px;
+  pre {
+    width: 98% !important;
+    max-width: 640px;
+  }
 }
 
 .comment__meta {
