@@ -1,14 +1,14 @@
-import { createSelector } from 'reselect'
+import { createSelector } from "reselect";
 
 export default createSelector(
   [
     state => state.location.type,
     state => state.location.payload,
-    state => state.videosHash,
-    state => state.videosByCategory
+    state => state.box,
+    state => state.thread
   ],
-  (type, { slug, category }, hash1, hash2) => {
-    if (type === 'VIDEO') return !hash1[slug]
-    if (type === 'LIST') return !hash2[category]
+  (type, { id }, box, thread) => {
+    if (type === "BOX") return box.id !== id;
+    if (type === "THREAD") return thread.id !== id;
   }
-)
+);
