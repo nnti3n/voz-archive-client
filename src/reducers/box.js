@@ -19,6 +19,7 @@ export default (state = initState, action = {}) => {
     case "BOX": {
       return {
         ...state,
+        data: initState.data,
         currentPage: 1
       };
     }
@@ -26,6 +27,7 @@ export default (state = initState, action = {}) => {
       const { currentPage } = action.payload;
       return {
         ...state,
+        data: initState.data,
         currentPage
       };
     }

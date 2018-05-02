@@ -30,6 +30,7 @@ export default (state = initState, action = {}) => {
       const { currentPage } = action.payload;
       return {
         ...state,
+        data: initState.data,
         currentPage
       };
     }

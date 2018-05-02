@@ -8,7 +8,9 @@ export default createSelector(
     state => state.thread
   ],
   (type, { id }, box, thread) => {
-    if (type === "BOX") return box.id !== id;
-    if (type === "THREAD") return thread.id !== id;
+    if (type === "BOX" || type === "BOX_WITH_PAGE")
+      return box.data.length === 0;
+    if (type === "THREAD_WITH_PAGE" || type === "THREAD")
+      return thread.data.posts.length === 0;
   }
 );
