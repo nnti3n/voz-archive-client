@@ -13,6 +13,9 @@ const Sidebar = ({ onClick, boxID }) => (
       <span className={activeBox(boxID, 33)} onClick={() => onClick("BOX", 33)}>
         F33
       </span>
+      <span className={activeBox(boxID, 17)} onClick={() => onClick("BOX", 17)}>
+        F17
+      </span>
     </div>
   </div>
 );
