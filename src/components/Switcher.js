@@ -9,7 +9,7 @@ import isLoading from "../selectors/isLoading";
 import styles from "../css/Switcher.css";
 
 const UniversalComponent = universal(({ page }) => import(`./${page}`), {
-  minDelay: 500,
+  minDelay: 200,
   loading: Loading,
   error: Err
 });
@@ -17,7 +17,7 @@ const UniversalComponent = universal(({ page }) => import(`./${page}`), {
 const Switcher = ({ page, direction, isLoading }) => (
   <TransitionGroup
     className={`${styles.switcher} ${direction}`}
-    duration={200}
+    duration={400}
     prefix="fade"
   >
     <Transition key={page}>
