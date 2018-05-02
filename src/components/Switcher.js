@@ -17,7 +17,7 @@ const UniversalComponent = universal(({ page }) => import(`./${page}`), {
 const Switcher = ({ page, direction, isLoading }) => (
   <TransitionGroup
     className={`${styles.switcher} ${direction}`}
-    duration={500}
+    duration={200}
     prefix="fade"
   >
     <Transition key={page}>
