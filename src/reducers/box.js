@@ -31,6 +31,13 @@ export default (state = initState, action = {}) => {
         currentPage
       };
     }
+    case "THREAD_FETCHED": {
+      const { thread } = action.payload.data;
+      return {
+        ...state,
+        id: thread.BoxID
+      };
+    }
     default: {
       return state;
     }
