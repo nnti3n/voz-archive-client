@@ -7,6 +7,7 @@ import webpackHotServerMiddleware from "webpack-hot-server-middleware";
 import clientConfig from "../webpack/client.dev";
 import serverConfig from "../webpack/server.dev";
 import axios from "axios";
+import proxy from "http-proxy-middleware";
 
 const DEV = process.env.NODE_ENV === "development";
 const publicPath = clientConfig.output.publicPath;
@@ -28,6 +29,17 @@ app.get("/api/thread/:threadID/posts", async (req, res) => {
   const data = await axios.get(`/api/thread/${req.params.threadID}/posts`);
   res.json(data);
 });
+
+app.use(
+  "/images/smilies/Off/",
+  proxy({
+    target: "https://s3-ap-southeast-1.amazonaws.com/voz-assets/voz-icons",
+    changeOrigin: true,
+    pathRewrite: {
+      "^/images/smilies/Off": "/" // rewrite path
+    }
+  })
+);
 
 // UNIVERSAL HMR + STATS HANDLING GOODNESS:
 
