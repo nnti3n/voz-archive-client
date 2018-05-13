@@ -50,4 +50,20 @@ h2 {
 .sidebar .fixedContainer {
   position: fixed;
   width: 150px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transition: 0.4s ease-in-out;
+  h2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .sidebar {
+    .fixedContainer {
+      transform: none !important;
+      h2 {
+        display: block;
+      }
+    }
+  }
 }
