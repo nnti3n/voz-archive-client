@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { NavLink } from "redux-first-router-link";
+import Link from "redux-first-router-link";
 import { goToPage } from "../actions";
 import styles from "../css/Sidebar.scss";
 
@@ -23,7 +23,7 @@ class Sidebar extends React.Component {
   };
 
   render() {
-    const { onClick, boxID } = this.props;
+    const { boxID } = this.props;
     const { isHide } = this.state;
     return (
       <div className={styles.sidebar}>
@@ -33,18 +33,12 @@ class Sidebar extends React.Component {
         >
           <h2>Boxes</h2>
 
-          <span
-            className={activeBox(boxID, 33)}
-            onClick={() => onClick("BOX", 33)}
-          >
+          <Link to="/box/33" className={activeBox(boxID, 33)}>
             F33
-          </span>
-          <span
-            className={activeBox(boxID, 17)}
-            onClick={() => onClick("BOX", 17)}
-          >
+          </Link>
+          <Link to="/box/17" className={activeBox(boxID, 17)}>
             F17
-          </span>
+          </Link>
         </div>
       </div>
     );

@@ -20,7 +20,15 @@
     white-space: pre;
     opacity: .6;
   }
-  a {
-    color: #888;
+}
+
+.link {
+  color: #888;
+}
+
+.title {
+  h3 {
+    color: #CCC6C0;
   }
+  text-decoration: none;
 }

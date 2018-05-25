@@ -2,17 +2,20 @@
 
 import React from "react";
 import { connect } from "react-redux";
+import Link from "redux-first-router-link";
 import { goToPage, visitBoxPage } from "../actions";
 import Pagination from "./Pagination";
 import styles from "../css/Box.scss";
 import { formatDate } from "../utils";
 
-const Box = ({ data, visitBoxPage, goToPage, page, id, currentPage }) => (
+const Box = ({ data, visitBoxPage, page, id, currentPage }) => (
   <div>
     {data.length
       ? data.map(item => (
           <div className={styles.story} key={item.ID}>
-            <h3 onClick={() => goToPage("THREAD", item.ID)}>{item.Title}</h3>
+            <Link to={`/thread/${item.ID}`} className={styles.title}>
+              <h3>{item.Title}</h3>
+            </Link>
             <div>
               <span>{item.UserNameStarter}</span>
               <span>{formatDate(item.LastUpdated)}</span>
@@ -23,6 +26,7 @@ const Box = ({ data, visitBoxPage, goToPage, page, id, currentPage }) => (
             </div>
             <div>
               <a
+                className={styles.link}
                 href={`https://vozforums.com/showthread.php?t=${item.ID}`}
                 target="_blank"
               >{`Thread ${item.ID}`}</a>
