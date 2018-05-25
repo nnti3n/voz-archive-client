@@ -7,7 +7,7 @@
 }
 
 .comment__text {
-  padding: 10px 15px;
+  padding: 10px 5px;
   pre {
     width: 98% !important;
     max-width: 640px;
@@ -26,4 +26,8 @@
   .order {
     padding: 7px 10px 10px;
   }
+}
+
+@media screen and (min-width: 769px) {
+  padding: 10px 15px;
 }
