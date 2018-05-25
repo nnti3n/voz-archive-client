@@ -1,6 +1,9 @@
 .container {
   padding: 24px 0;
   text-align: right;
+  a:not(:last-child) {
+    margin-right: 6px;
+  }
 }
 
 .highlight {
