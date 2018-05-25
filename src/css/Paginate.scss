@@ -1,5 +1,5 @@
 .container {
-  padding: 24px 0;
+  padding: 12px 10px 18px 10px;
   text-align: right;
   a:not(:last-child) {
     margin-right: 6px;
@@ -9,4 +9,10 @@
 .highlight {
   font-weight: bold;
   font-size: 20px;
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    padding: 24px 0;
+  }
 }
