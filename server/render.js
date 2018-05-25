@@ -6,7 +6,7 @@ import flushChunks from "webpack-flush-chunks";
 import configureStore from "./configureStore";
 import App from "../src/components/App";
 
-export default ({ clientStats }) => async (req, res, next) => {
+export default ({ clientStats }) => async (req, res) => {
   const store = await configureStore(req, res);
   if (!store) return; // no store means redirect was already served
 
@@ -43,7 +43,7 @@ export default ({ clientStats }) => async (req, res, next) => {
           <script type='text/javascript' src='/static/vendor.js'></script>
           ${js}
           <!-- Global site tag (gtag.js) - Google Analytics -->
-          ${process.env.NODE_ENV === "production" ? ga : null}
+          ${process.env.NODE_ENV === "production" ? ga : ""}
         </body>
       </html>`
   );
