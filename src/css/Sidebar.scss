@@ -34,17 +34,23 @@ h2 {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
   transition: 0s ease all;
 }
+
 .sidebar a:hover,
-.sidebar span:hover {
-  background: rgb(132, 112, 89);
+.sidebar a:active,
+.sidebar span:hover,
+.sidebar span:active {
+  background: #56a0d6;
 }
 .sidebar .active a:hover,
-.sidebar .span span:hover {
-  background: rgb(254, 209, 158);
+.sidebar .active a:active,
+.sidebar .span span:hover,
+.sidebar .span span:active {
+  background: #7abae8;
 }
 
-.sidebar .active:hover {
-  background: rgb(224, 179, 128);
+.sidebar .active:hover,
+.sidebar .active:active {
+  background: #7abae8;
 }
 
 .sidebar .fixedContainer {
@@ -57,7 +63,7 @@ h2 {
   }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:769px) {
   .sidebar {
     .fixedContainer {
       transform: none !important;
@@ -65,5 +71,17 @@ h2 {
         display: block;
       }
     }
+  }
+  .sidebar a:hover,
+  .sidebar span:hover {
+    background: rgb(132, 112, 89);
+  }
+  .sidebar .active a:hover,
+  .sidebar .span span:hover {
+    background: rgb(254, 209, 158);
+  }
+
+  .sidebar .active:hover {
+    background: rgb(224, 179, 128);
   }
 }
