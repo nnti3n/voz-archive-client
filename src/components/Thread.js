@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styles from "../css/Thread.scss";
+import Link from "redux-first-router-link";
 import { visitThreadPage } from "../actions";
 import Pagination from "./Pagination";
 import { formatDate } from "../utils";
@@ -8,6 +9,9 @@ import { formatDate } from "../utils";
 const Thread = ({ data, page, visitThreadPage, currentPage, id }) => (
   <div>
     <div>
+      <div className={styles.title}>
+        <Link to={`/thread/${id}`}>Thread: {data.thread.Title}</Link>
+      </div>
       {data.posts.length !== 0
         ? data.posts.map(item => (
             <div className={styles.comment} key={item.ID}>
