@@ -17,7 +17,7 @@
   padding: 10px 5px;
   pre {
     width: 98% !important;
-    max-width: 640px;
+    max-width: 300px;
   }
 }
 
@@ -38,5 +38,13 @@
 @media screen and (min-width: 769px) {
   .title {
     margin-top: 0;
+  }
+
+  .comment__text {
+    padding: 10px 5px;
+    pre {
+      width: 98% !important;
+      max-width: 640px;
+    }
   }
 }
